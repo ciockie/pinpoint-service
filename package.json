@@ -1,0 +1,23 @@
+{
+    "name": "pinpoint-service",
+    "version": "1.0.0",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "pinpoint",
+        "service",
+        "https://pin-point.co/"
+    ],
+    "author": "ciockie",
+    "license": "ISC",
+    "description": "คลาสที่ใช้สำหรับเรียกใช้งาน API ของ Pinpoint สำหรับการค้นหาสถานที่",
+    "dependencies": {
+        "axios": "^1.6.0"
+    },
+    "devDependencies": {
+        "@types/node": "^22.5.0",
+        "typescript": "^5.5.4"
+    }
+}
