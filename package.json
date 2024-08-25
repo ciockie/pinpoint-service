@@ -1,5 +1,5 @@
 {
-    "name": "pinpoint-service",
+    "name": "pinpoint-service-api",
     "version": "0.0.1",
     "main": "dist/index.js",
     "types": "index.d.ts",
