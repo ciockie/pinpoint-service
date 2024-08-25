@@ -11,7 +11,7 @@ import {
 /**
  * คลาสที่ใช้สำหรับเรียกใช้งาน API ของ Pinpoint สำหรับการค้นหาสถานที่ ทำงานบน Server side เท่านั้น
  */
-export class PinpointService implements IPinpointService {
+export default class PinpointService implements IPinpointService {
     private readonly token: string;
     private readonly referer: string;
     private readonly baseUrl: string;

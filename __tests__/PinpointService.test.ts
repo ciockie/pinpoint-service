@@ -4,7 +4,7 @@ import {
     PinpointAutocompleteResponse,
     PinpointDetailsResponse,
     PinpointBatchResponse,
-} from "../src";
+} from "../src/index.d";
 
 jest.mock("axios");
 const mockedAxios = axios as jest.Mocked<AxiosStatic>;
