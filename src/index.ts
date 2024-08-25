@@ -119,7 +119,10 @@ export interface IPinpointService {
         location: string,
         maxResult?: number,
     ): Promise<PinpointAutocompleteResponse[]>;
-    Details(location: string): Promise<PinpointDetailsResponse | null>;
+    Details(
+        location: string,
+        languageCode?: "th" | "en",
+    ): Promise<PinpointDetailsResponse | null>;
     BatchDetails(location: string[]): Promise<PinpointBatchResponse | null>;
 }
 
@@ -193,15 +196,33 @@ export default class PinpointService implements IPinpointService {
      */
     public async Details(
         location: string,
+        languageCode?: "th" | "en",
     ): Promise<PinpointDetailsResponse | null> {
-        const url = `${this.baseUrl}details`;
+        let url: string = `${this.baseUrl}details`;
+
+        const params: {
+            key: string;
+            locationid: string;
+            languageCode?: "th" | "en";
+        } = {
+            key: this.token,
+            locationid: "",
+        };
+
+        if (languageCode) {
+            url = `${this.baseUrl}detailsLanguage`;
+            params["languageCode"] = languageCode;
+        }
+
         const method = "POST";
         const autocompleteData = await this.Autocomplete(location);
 
-        const data = new URLSearchParams({
-            key: this.token,
-            locationid: autocompleteData[0].LocationID,
-        });
+        if (autocompleteData.length === 0) {
+            return null;
+        }
+        params.locationid = autocompleteData[0].LocationID;
+
+        const data = new URLSearchParams(params);
 
         const config: AxiosRequestConfig = {
             method,
