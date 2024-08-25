@@ -117,6 +117,7 @@ const autoComplete = pinpointService.Autocomplete("สถานที่", 5);
 | Parameter | Type | Description |
 | :---------- | :------- | :----------------------------------------------------- |
 | `location` | `string` | **Required**. ข้อความค้นหา เช่น ที่อยู่หรือชื่อสถานที่ |
+| `languageCode` | `"th" or "en"` | ภาษาที่แสดงผล รองรับ 2 ภาษา ไทย/อังกฤษ |
 
 ```typescript
 import { PinpointService, PinpointServiceSettings } from "./path/to/service";
