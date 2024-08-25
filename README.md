@@ -28,6 +28,29 @@
 
 โครงการนี้เป็นบริการที่ใช้ TypeScript สำหรับการเชื่อมต่อกับ API ของ Pinpoint เพื่อทำการค้นหาตามสถานที่ บริการนี้ออกแบบมาให้ทำงานบนฝั่งเซิร์ฟเวอร์และให้วิธีการในการดึงข้อมูลคำแนะนำอัตโนมัติ ข้อมูลรายละเอียดสถานที่ และข้อมูลหลายสถานที่ในคราวเดียว
 
+## สารบัญ
+
+- [บริการ API ของ Pinpoint](#บริการ-api-ของ-pinpoint)
+- [คุณสมบัติ](#คุณสมบัติ)
+    - [การค้นหาอัตโนมัติ (Autocomplete)](#การค้นหาอัตโนมัติ-autocomplete)
+    - [รายละเอียดสถานที่ (Details)](#รายละเอียดสถานที่-details)
+    - [รายละเอียดหลายสถานที่ (Batch)](#รายละเอียดหลายสถานที่-batchdetails)
+- [การเริ่มต้นใช้งาน](#การเริ่มต้นใช้งาน)
+    - [Installation](#installation)
+    - [รับ API Token ของคุณ](#รับ-api-token-ของคุณ)
+    - [การตั้งค่า](#การตั้งค่า)
+- [Autocomplete](#autocomplete)
+    - [พารามิเตอร์](#พารามิเตอร์-autocomplete)
+    - [ผลลัพธ์](#ผลลัพธ์-autocomplete)
+- [Details](#details)
+    - [พารามิเตอร์](#พารามิเตอร์-details)
+    - [ผลลัพธ์](#ผลลัพธ์-details)
+- [BatchDetails](#batchdetails)
+    - [พารามิเตอร์](#พารามิเตอร์-batchdetails)
+    - [ผลลัพธ์](#ผลลัพธ์-batchdetails)
+- [Authors](#authors)
+- [License](#license)
+
 ## คุณสมบัติ
 
 -   **การค้นหาอัตโนมัติ (Autocomplete)**: ดึงข้อมูลคำแนะนำที่เกี่ยวข้องสูงสุด 10 รายการสำหรับคำค้นที่กำหนด เช่น ที่อยู่ ชื่อสถานที่ หรือพิกัดในประเทศไทย
@@ -46,7 +69,7 @@ npm install pinpoint-service
 
 ในการใช้ API ของ Pinpoint คุณจะต้องได้รับ API token คุณสามารถรับ token ของคุณได้โดยการสมัครที่ [เว็บไซต์ทางการของ Pinpoint](https://pin-point.co/)
 
-### การตั้งค่าบริการ
+### การตั้งค่า
 
 เพื่อเริ่มใช้งาน `PinpointService` คุณต้องเริ่มต้นด้วยการกำหนดค่า API token และ referer URL ของคุณ:
 
@@ -81,7 +104,7 @@ const pinpointService = new PinpointService(settings);
 const autoComplete = pinpointService.Autocomplete("สถานที่", 5);
 ```
 
-ผลลัพธ์
+**ผลลัพธ์**
 
 ```typescript
 [
@@ -112,7 +135,7 @@ const pinpointService = new PinpointService(settings);
 const autoComplete = pinpointService.Details("สถานที่");
 ```
 
-ผลลัพธ์
+**ผลลัพธ์**
 
 ```typescript
 {
@@ -166,7 +189,27 @@ const autoComplete = pinpointService.Details([
 ]);
 ```
 
-ผลลัพธ์
+**ผลลัพธ์**
+
+ข้อมูลที่ได้จากการค้นหาสถานที่ด้วย Pinpoint Batch ประกอบด้วยข้อมูลพื้นฐานของสถานที่:
+
+-   success: สถานะของการค้นหา (true หรือ false)
+-   fields: ชื่อฟิลด์ที่ใช้ในการค้นหา
+-   data: ข้อมูลที่ได้จากการค้นหา
+    -   input: ข้อความที่ใช้ในการค้นหา
+    -   result: ผลลัพธ์การค้นหา
+        -   type: ประเภทของสถานที่ที่ค้นหา (address, point_of_interest, business)
+        -   grade: ระดับความถูกต้องของการจับคู่ที่อยู่
+            -   A: ตรงกับบ้านเลขที่, ชื่อหมู่บ้าน/โครงการ, ซอย/ถนน, แขวง/ตำบล, เขต/อำเภอ, จังหวัด
+            -   B+: ตรงกับชื่อหมู่บ้าน/โครงการ, ซอย, แขวง/ตำบล, เขต/อำเภอ, จังหวัด
+            -   B: ตรงกับถนน, ตำบล, อำเภอ, จังหวัด
+            -   C: ตรงกับตำบล, อำเภอ, จังหวัด
+            -   D: ตรงกับอำเภอ, จังหวัด
+            -   E: ตรงกับจังหวัด
+            -   F: ไม่พบผลลัพธ์ที่ตรงกัน
+            -   "-": ตรงกับสถานที่สำคัญ (จุดสนใจ เช่น แลนด์มาร์ก)
+        -   match: ข้อมูลที่ได้จากการค้นหา
+        -   score: คะแนนความถูกต้องของการจับคู่ที่อยู่
 
 ```typescript
 {
@@ -268,3 +311,12 @@ const autoComplete = pinpointService.Details([
     ]
 }
 ```
+
+## Authors
+
+- [@ciockie](https://www.github.com/ciockie)
+
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
