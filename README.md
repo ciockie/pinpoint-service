@@ -115,11 +115,30 @@ const autoComplete = pinpointService.Details("สถานที่");
 ผลลัพธ์
 
 ```typescript
-    {
+{
     LocationID: "12345",
-    FormattedAddress: "123/4 ถนนพระราม 4 เขตปทุมวัน กรุงเทพฯ 10330",
-    Latitude: 13.746,
-    Longitude: 100.533
+    BusinessName: null,
+    HouseNumber: "123",
+    PremiseName: "อาคารศูนย์การค้า",
+    PremiseLaneName: "ซอยพระราม",
+    Moo: null,
+    StreetLeadingType: null,
+    StreetName: "พระราม 4",
+    StreetTrailingType: null,
+    SubStreetLeadingType: null,
+    SubStreetName: null,
+    SubStreetTrailingType: null,
+    StreetFullName: "ถนนพระราม 4",
+    SubDistrictPrefix: "แขวง",
+    SubDistrict: "ปทุมวัน",
+    DistrictPrefix: "เขต",
+    District: "ปทุมวัน",
+    ProvincePrefix: "กรุงเทพมหานคร",
+    Province: "กรุงเทพฯ",
+    LanguageCode: "TH",
+    LAT_LON: "13.746,100.533",
+    PostalCode: "10330",
+    FormattedAddress: "123/4 ถนนพระราม 4 เขตปทุมวัน กรุงเทพฯ 10330"
 }
 ```
 
@@ -150,18 +169,102 @@ const autoComplete = pinpointService.Details([
 ผลลัพธ์
 
 ```typescript
-[
-    {
-        LocationID: "12345",
-        FormattedAddress: "123/4 ถนนพระราม 4 เขตปทุมวัน กรุงเทพฯ 10330",
-        Latitude: 13.746,
-        Longitude: 100.533,
-    },
-    {
-        LocationID: "67890",
-        FormattedAddress: "678/9 ถนนรัชดาภิเษก เขตดินแดง กรุงเทพฯ 10400",
-        Latitude: 13.764,
-        Longitude: 100.537,
-    },
-];
+{
+    success: true,
+    fields: [
+        "LocationID",
+        "BusinessName",
+        "HouseNumber",
+        "PremiseName",
+        "PremiseLaneName",
+        "Moo",
+        "StreetLeadingType",
+        "StreetName",
+        "StreetTrailingType",
+        "SubStreetLeadingType",
+        "SubStreetName",
+        "SubStreetTrailingType",
+        "StreetFullName",
+        "SubDistrictPrefix",
+        "SubDistrict",
+        "DistrictPrefix",
+        "District",
+        "ProvincePrefix",
+        "Province",
+        "LanguageCode",
+        "LAT_LON",
+        "PostalCode",
+        "FormattedAddress"
+    ],
+    data: [
+        {
+            input: "สถานที่1",
+            result: {
+                type: "address",
+                grade: "A",
+                match: [
+                    {
+                        LocationID: "12345",
+                        BusinessName: null,
+                        HouseNumber: "123/4",
+                        PremiseName: null,
+                        PremiseLaneName: null,
+                        Moo: null,
+                        StreetLeadingType: null,
+                        StreetName: "พระราม 4",
+                        StreetTrailingType: null,
+                        SubStreetLeadingType: null,
+                        SubStreetName: null,
+                        SubStreetTrailingType: null,
+                        StreetFullName: "ถนนพระราม 4",
+                        SubDistrictPrefix: null,
+                        SubDistrict: "ปทุมวัน",
+                        DistrictPrefix: null,
+                        District: "ปทุมวัน",
+                        ProvincePrefix: null,
+                        Province: "กรุงเทพฯ",
+                        LanguageCode: "th",
+                        LAT_LON: "13.746,100.533",
+                        PostalCode: "10330",
+                        FormattedAddress: "123/4 ถนนพระราม 4 เขตปทุมวัน กรุงเทพฯ 10330",
+                    }
+                ]
+            }
+        },
+        {
+            input: "สถานที่2",
+            result: {
+                type: "point_of_interest",
+                grade: "B+",
+                match: [
+                    {
+                        LocationID: "67890",
+                        BusinessName: null,
+                        HouseNumber: "678/9",
+                        PremiseName: null,
+                        PremiseLaneName: null,
+                        Moo: null,
+                        StreetLeadingType: null,
+                        StreetName: "รัชดาภิเษก",
+                        StreetTrailingType: null,
+                        SubStreetLeadingType: null,
+                        SubStreetName: null,
+                        SubStreetTrailingType: null,
+                        StreetFullName: "ถนนรัชดาภิเษก",
+                        SubDistrictPrefix: null,
+                        SubDistrict: "ดินแดง",
+                        DistrictPrefix: null,
+                        District: "ดินแดง",
+                        ProvincePrefix: null,
+                        Province: "กรุงเทพฯ",
+                        LanguageCode: "th",
+                        LAT_LON: "13.764,100.537",
+                        PostalCode: "10400",
+                        FormattedAddress: "678/9 ถนนรัชดาภิเษก เขตดินแดง กรุงเทพฯ 10400",
+                    }
+                ]
+            }
+        }
+    ]
+}
 ```
