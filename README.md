@@ -36,6 +36,12 @@
 
 ## การเริ่มต้นใช้งาน
 
+### Installation
+
+```batch
+npm install pinpoint-service
+```
+
 ### รับ API Token ของคุณ
 
 ในการใช้ API ของ Pinpoint คุณจะต้องได้รับ API token คุณสามารถรับ token ของคุณได้โดยการสมัครที่ [เว็บไซต์ทางการของ Pinpoint](https://pin-point.co/)
