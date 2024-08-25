@@ -1,6 +1,6 @@
 {
     "name": "pinpoint-service-api",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "scripts": {
@@ -18,7 +18,6 @@
         "axios": "^1.6.0"
     },
     "devDependencies": {
-        "@types/jest": "^29.5.12",
         "@types/node": "^22.5.0",
         "typescript": "^5.5.4"
     }
