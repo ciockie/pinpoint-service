@@ -82,7 +82,7 @@ export interface PinpointAutocompleteResponse {
  */
 export interface PinpointBatchResponse {
     success: boolean;
-    fields: keyof PinpointDetailsResponse[];
+    fields: (keyof PinpointDetailsResponse)[];
     data: {
         input: string;
         result: {

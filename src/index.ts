@@ -6,7 +6,7 @@ import {
     PinpointBatchResponse,
     PinpointServiceSettings,
     IPinpointService,
-} from "./types";
+} from "./index.d";
 
 /**
  * คลาสที่ใช้สำหรับเรียกใช้งาน API ของ Pinpoint สำหรับการค้นหาสถานที่ ทำงานบน Server side เท่านั้น
