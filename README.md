@@ -25,26 +25,26 @@
 
 ## สารบัญ
 
-- [บริการ API ของ Pinpoint](#บริการ-api-ของ-pinpoint)
-- [คุณสมบัติ](#คุณสมบัติ)
-    - [การค้นหาอัตโนมัติ (Autocomplete)](#การค้นหาอัตโนมัติ-autocomplete)
-    - [รายละเอียดสถานที่ (Details)](#รายละเอียดสถานที่-details)
-    - [รายละเอียดหลายสถานที่ (Batch)](#รายละเอียดหลายสถานที่-batchdetails)
-- [การเริ่มต้นใช้งาน](#การเริ่มต้นใช้งาน)
-    - [Installation](#installation)
-    - [รับ API Token ของคุณ](#รับ-api-token-ของคุณ)
-    - [การตั้งค่า](#การตั้งค่า)
-- [Autocomplete](#autocomplete)
-    - [พารามิเตอร์](#พารามิเตอร์-autocomplete)
-    - [ผลลัพธ์](#ผลลัพธ์-autocomplete)
-- [Details](#details)
-    - [พารามิเตอร์](#พารามิเตอร์-details)
-    - [ผลลัพธ์](#ผลลัพธ์-details)
-- [BatchDetails](#batchdetails)
-    - [พารามิเตอร์](#พารามิเตอร์-batchdetails)
-    - [ผลลัพธ์](#ผลลัพธ์-batchdetails)
-- [Authors](#authors)
-- [License](#license)
+-   [บริการ API ของ Pinpoint](#บริการ-api-ของ-pinpoint)
+-   [คุณสมบัติ](#คุณสมบัติ)
+    -   [การค้นหาอัตโนมัติ (Autocomplete)](#การค้นหาอัตโนมัติ-autocomplete)
+    -   [รายละเอียดสถานที่ (Details)](#รายละเอียดสถานที่-details)
+    -   [รายละเอียดหลายสถานที่ (Batch)](#รายละเอียดหลายสถานที่-batchdetails)
+-   [การเริ่มต้นใช้งาน](#การเริ่มต้นใช้งาน)
+    -   [Installation](#installation)
+    -   [รับ API Token ของคุณ](#รับ-api-token-ของคุณ)
+    -   [การตั้งค่า](#การตั้งค่า)
+-   [Autocomplete](#autocomplete)
+    -   [พารามิเตอร์](#พารามิเตอร์-autocomplete)
+    -   [ผลลัพธ์](#ผลลัพธ์-autocomplete)
+-   [Details](#details)
+    -   [พารามิเตอร์](#พารามิเตอร์-details)
+    -   [ผลลัพธ์](#ผลลัพธ์-details)
+-   [BatchDetails](#batchdetails)
+    -   [พารามิเตอร์](#พารามิเตอร์-batchdetails)
+    -   [ผลลัพธ์](#ผลลัพธ์-batchdetails)
+-   [Authors](#authors)
+-   [License](#license)
 
 ## คุณสมบัติ
 
@@ -57,7 +57,7 @@
 ### Installation
 
 ```batch
-npm install pinpoint-service
+npm install pinpoint-service-api
 ```
 
 ### รับ API Token ของคุณ
@@ -309,8 +309,7 @@ const autoComplete = pinpointService.Details([
 
 ## Authors
 
-- [@ciockie](https://www.github.com/ciockie)
-
+-   [@ciockie](https://www.github.com/ciockie)
 
 ## License
 

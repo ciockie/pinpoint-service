@@ -113,6 +113,7 @@ export interface PinpointServiceSettings {
  * @method getBatchDetails ทำการขอรายละเอียดของหลายสถานที่พร้อมกัน (สูงสุด 50 รายการ)
  */
 export interface IPinpointService {
+    constructor(settings: PinpointServiceSettings): void;
     Autocomplete(
         location: string,
         maxResult?: number,
