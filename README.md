@@ -69,7 +69,7 @@ npm install pinpoint-service-api
 เพื่อเริ่มใช้งาน `PinpointService` คุณต้องเริ่มต้นด้วยการกำหนดค่า API token และ referer URL ของคุณ:
 
 ```typescript
-import { PinpointService, PinpointServiceSettings } from "./path/to/service";
+import PinpointService, { PinpointServiceSettings } from "pinpoint-service-api";
 
 const settings: PinpointServiceSettings = {
     token: "your-api-token",
@@ -88,7 +88,7 @@ const pinpointService = new PinpointService(settings);
 | `maxResult` | `number` | จำนวนผลลัพธ์สูงสุดที่ต้องการ (Default=1, Max=10) |
 
 ```typescript
-import { PinpointService, PinpointServiceSettings } from "./path/to/service";
+import PinpointService, { PinpointServiceSettings } from "pinpoint-service-api";
 
 const settings: PinpointServiceSettings = {
     token: "your-api-token",
@@ -121,7 +121,7 @@ const autoComplete = pinpointService.Autocomplete("สถานที่", 5);
 | `languageCode` | `"th", "en"` | ภาษาที่แสดงผล รองรับ 2 ภาษา ไทย/อังกฤษ                 |
 
 ```typescript
-import { PinpointService, PinpointServiceSettings } from "./path/to/service";
+import PinpointService, { PinpointServiceSettings } from "pinpoint-service-api";
 
 const settings: PinpointServiceSettings = {
     token: "your-api-token",
@@ -171,7 +171,7 @@ const autoComplete = pinpointService.Details("สถานที่");
 | `location` | `string[]` | **Required**. ข้อความค้นหา เช่น ที่อยู่หรือชื่อสถานที่ |
 
 ```typescript
-import { PinpointService, PinpointServiceSettings } from "./path/to/service";
+import PinpointService, { PinpointServiceSettings } from "pinpoint-service-api";
 
 const settings: PinpointServiceSettings = {
     token: "your-api-token",
