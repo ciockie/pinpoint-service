@@ -137,7 +137,7 @@ export default class PinpointService implements IPinpointService {
     constructor(settings: PinpointServiceSettings) {
         this.token = settings.token;
         this.referer = settings.referer;
-        this.baseUrl = settings.baseUrl || "https://pin-point.co/g/search/";
+        this.baseUrl = settings.baseUrl || "https://pin-point.co/g/search";
     }
 
     private getHeaders() {
@@ -160,7 +160,7 @@ export default class PinpointService implements IPinpointService {
         location: string,
         maxResult = 1,
     ): Promise<PinpointAutocompleteResponse[]> {
-        const url = `${this.baseUrl}autocomplete`;
+        const url = `${this.baseUrl}/autocomplete`;
         const method = "POST";
         const data = new URLSearchParams({
             keyword: location,
@@ -198,7 +198,7 @@ export default class PinpointService implements IPinpointService {
         location: string,
         languageCode?: "th" | "en",
     ): Promise<PinpointDetailsResponse | null> {
-        let url: string = `${this.baseUrl}details`;
+        let url: string = `${this.baseUrl}/details`;
 
         const params: {
             key: string;
@@ -210,7 +210,7 @@ export default class PinpointService implements IPinpointService {
         };
 
         if (languageCode) {
-            url = `${this.baseUrl}detailsLanguage`;
+            url = `${this.baseUrl}/detailsLanguage`;
             params["languageCode"] = languageCode;
         }
 
@@ -252,7 +252,7 @@ export default class PinpointService implements IPinpointService {
     public async BatchDetails(
         locations: string[],
     ): Promise<PinpointBatchResponse | null> {
-        const url = `${this.baseUrl}batch`;
+        const url = `${this.baseUrl}/batch`;
         const method = "POST";
         const data = locations.map((location) => ({ input: location }));
 
